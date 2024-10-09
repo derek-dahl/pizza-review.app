@@ -28,6 +28,24 @@
   color: #61dafb;
 }
 
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  color: #ff6347 !important;
+}
+
+.card-subtitle {
+  font-style: italic;
+}
+
+.card {
+  border: 2px solid #eee;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.25);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

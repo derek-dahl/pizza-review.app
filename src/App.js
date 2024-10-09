@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import pizzaReviews from './data/pizzaReviews';
+import ReviewCard from './components/ReviewCard';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="container mt-4">
+          <h1 className="text-center display-4 my-4">🍕 Pizza Reviews 🍕</h1>
+          <div className="row">
+              {pizzaReviews.map((review) => (
+                  <div className="col-sm-6 col-md-4 mb-4" key={review.id}>
+                      <ReviewCard review={review} />
+                  </div>
+              ))}
+          </div>
+      </div>
   );
-}
+};
 
 export default App;
