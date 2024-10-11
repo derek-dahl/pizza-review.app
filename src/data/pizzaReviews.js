@@ -18,13 +18,13 @@ const pizzaReviews = [
         location: "New Orleans, LA"
     },
     {
-        id: 3,
+        id: 4,
         pizzaPlace: "Yorkel Borkel's Pizza Shack",
         score: 9.9,
         location: "Bethlehem, NJ"
     },
     {
-        id: 4,
+        id: 5,
         pizzaPlace: "Nyarp & Darps Pizza Pump",
         score: 6.7,
         location: "Portland OR"
