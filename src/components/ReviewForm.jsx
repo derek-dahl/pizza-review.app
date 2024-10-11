@@ -21,32 +21,52 @@ const ReviewForm = ({ onSubmit, onClose }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Pizza Parlor"
-                value={pizzaParlor}
-                onChange={(e) => setPizzaParlor(e.target.value)}
-                required
-            />
-            <input
-                type="text"
-                placeholder="Location (e.g., New York, NY)"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                required
-            />
-            <input
-                type="number"
-                placeholder="Score (1-10)"
-                value={score}
-                onChange={(e) => setScore(Number(e.target.value))}
-                min="1"
-                max="10"
-                required
-            />
-            <button type="submit">Add Review</button>
-            <button type="button" onClick={onClose}>Close</button>
+        <form onSubmit={handleSubmit} className="p-4 bg-light rounded shadow">
+            <h2 className="mb-4">Add a New Review</h2>
+            
+            <div className="mb-3">
+                <label htmlFor="pizzaParlor" className="form-label">Pizza Parlor</label>
+                <input
+                    type="text"
+                    id="pizzaParlor"
+                    className="form-control"
+                    placeholder="Enter pizza parlor name"
+                    value={pizzaParlor}
+                    onChange={(e) => setPizzaParlor(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="location" className="form-label">Location</label>
+                <input
+                    type="text"
+                    id="location"
+                    className="form-control"
+                    placeholder="e.g., New York, NY"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="score" className="form-label">Score (1-10)</label>
+                <input
+                    type="number"
+                    id="score"
+                    className="form-control"
+                    placeholder="Rate from 1 to 10"
+                    value={score}
+                    onChange={(e) => setScore(Number(e.target.value))}
+                    min="1"
+                    max="10"
+                    required
+                />
+            </div>
+
+            <button type="submit" className="btn btn-primary">Add Review</button>
+            <button type="button" className="btn btn-secondary ms-2" onClick={onClose}>Close</button>
         </form>
     );
 };
