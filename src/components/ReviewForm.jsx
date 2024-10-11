@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const ReviewForm = ({ onSubmit, onClose }) => {
     const [pizzaParlor, setPizzaParlor] = useState('');
     const [location, setLocation] = useState('');
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,12 +11,12 @@ const ReviewForm = ({ onSubmit, onClose }) => {
             id: Date.now(),
             pizzaPlace: pizzaParlor,
             location: location,
-            score: score,
+            score: parseFloat(score),
         };
         onSubmit(newReview); // Call the parent function to handle the new review
         setPizzaParlor('');
         setLocation('');
-        setScore(0);
+        setScore('');
         onClose(); // Close the modal after submission
     };
 
@@ -59,8 +59,9 @@ const ReviewForm = ({ onSubmit, onClose }) => {
                     placeholder="Rate from 1 to 10"
                     value={score}
                     onChange={(e) => setScore(Number(e.target.value))}
-                    min="1"
+                    min="0"
                     max="10"
+                    step="0.1"
                     required
                 />
             </div>
