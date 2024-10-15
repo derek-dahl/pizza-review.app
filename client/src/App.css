@@ -14,14 +14,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: lightcoral;
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Align items vertically in the center */
 }
 
 .App-link {
@@ -45,6 +41,28 @@
 
 .card:hover {
   transform: scale(1.25);
+}
+
+.shake-emoji {
+  margin: 0 0.3em; /* Add some spacing around the emojis */
+  transition: transform 0.2s;
+}
+
+.shake-emoji:hover {
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
 }
 
 @keyframes App-logo-spin {
