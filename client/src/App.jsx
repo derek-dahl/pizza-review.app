@@ -35,7 +35,7 @@ const App = () => {
 
         <div className="row">
           {reviews.map((review) => (
-            <div className="col-sm-6 col-md-4 mb-4" key={review.id}>
+            <div className="col-sm-6 col-md-3 mb-4" key={review.id}>
               <ReviewCard review={review} />
             </div>
           ))}
