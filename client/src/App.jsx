@@ -1,42 +1,48 @@
-import React, { useState } from 'react';
-import './App.css';
-import pizzaReviews from './data/pizzaReviews';
-import ReviewCard from './components/ReviewCard';
-import Modal from './components/Modal';
-import ReviewForm from './components/ReviewForm';
+import React, { useState } from "react";
+import "./App.css";
+import pizzaReviews from "./data/pizzaReviews";
+import ReviewCard from "./components/ReviewCard";
+import Modal from "./components/Modal";
+import ReviewForm from "./components/ReviewForm";
+import Header from "./components/Header";
 
 const App = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [reviews, setReviews] = useState(pizzaReviews); // Use state to manage reviews
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [reviews, setReviews] = useState(pizzaReviews); // Use state to manage reviews
 
-    const handleOpenModal = () => setIsModalOpen(true);
-    const handleCloseModal = () => setIsModalOpen(false);
-    
-    const handleAddReview = (newReview) => {
-        setReviews((prevReviews) => [...prevReviews, newReview]);
-    };
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
-    return (
-        <div className="container mt-4">
-            <h1 className="text-center display-4 my-4">🍕 Pizza Reviews 🍕</h1>
-            <button onClick={handleOpenModal} className="btn btn-outline-primary mt-auto">
-                Add Review
-            </button>
+  const handleAddReview = (newReview) => {
+    setReviews((prevReviews) => [...prevReviews, newReview]);
+  };
 
-            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-                <h2>Add a Review</h2>
-                <ReviewForm onSubmit={handleAddReview} onClose={handleCloseModal} />
-            </Modal>
+  return (
+    <>
+      <Header />
+      <div className="container mt-4">
+        <button
+          onClick={handleOpenModal}
+          className="btn btn-outline-primary mt-auto"
+        >
+          Add Review
+        </button>
 
-            <div className="row">
-                {reviews.map((review) => (
-                    <div className="col-sm-6 col-md-4 mb-4" key={review.id}>
-                        <ReviewCard review={review} />
-                    </div>
-                ))}
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          <h2>Add a Review</h2>
+          <ReviewForm onSubmit={handleAddReview} onClose={handleCloseModal} />
+        </Modal>
+
+        <div className="row">
+          {reviews.map((review) => (
+            <div className="col-sm-6 col-md-4 mb-4" key={review.id}>
+              <ReviewCard review={review} />
             </div>
+          ))}
         </div>
-    );
+      </div>
+    </>
+  );
 };
 
 export default App;
