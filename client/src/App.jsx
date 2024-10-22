@@ -5,6 +5,7 @@ import ReviewCard from "./components/ReviewCard";
 import Modal from "./components/Modal";
 import ReviewForm from "./components/ReviewForm";
 import Header from "./components/Header";
+import AddReviewButton from "./components/AddReviewButton";
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,12 +22,8 @@ const App = () => {
     <>
       <Header />
       <div className="container mt-4">
-        <button
-          onClick={handleOpenModal}
-          className="btn btn-outline-primary mt-auto"
-        >
-          Add Review
-        </button>
+        {/* TODO: Refactor into button component in header */}
+        <AddReviewButton onClick={handleOpenModal} />
 
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <h2>Add a Review</h2>
