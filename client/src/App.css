@@ -14,10 +14,11 @@
 }
 
 .App-header {
-  background-color: lightcoral;
+  background-color: #e24647;
   display: flex; /* Use flexbox for horizontal alignment */
   justify-content: center; /* Center the content */
   align-items: center; /* Align items vertically in the center */
+  color: #fcedc6;
 }
 
 .App-link {
